@@ -1,0 +1,7 @@
+﻿require('libs.func')
+require('libs.debug')
+require('libs.Math')
+require('libs.Vector3Lua')
+require('libs.Vector2Lua')
+require('libs.QuaternionLua')
+require('libs.pinyin')

@@ -1,0 +1,3 @@
+﻿local AnimationsDef = {}
+
+return AnimationsDef

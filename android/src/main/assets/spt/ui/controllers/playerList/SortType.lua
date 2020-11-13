@@ -1,0 +1,19 @@
+﻿local SortType = {
+    DEFAULT = 1,
+    POWER_FALL = 2, 
+    POWER_RISE = 3, 
+    QUALITY_FALL = 4,
+    QUALITY_RISE = 5,
+    NAME_FALL = 6,
+    NAME_RISE = 7,
+    OBTAIN_ORDER_FALL = 8,
+    OBTAIN_ORDER_RISE = 9,
+    PASTER_NUM_FALL = 10,
+    PASTER_NUM_RISE = 11,
+    TRAIN_PROGRESS_FALL = 12,
+    TRAIN_PROGRESS_RISE = 13,
+    LEGEND_PROGRESS_FALL = 14,
+    LEGEND_PROGRESS_RISE = 15,
+}
+
+return SortType

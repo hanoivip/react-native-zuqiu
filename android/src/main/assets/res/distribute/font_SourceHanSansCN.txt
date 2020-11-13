@@ -1,0 +1,2 @@
+﻿Assets/CapstonesRes/distribute/font_SourceHanSansCN/Common/Fonts/SourceHanSansCN-Bold.otf|redirect|fonts_font_SourceHanSansCN|0|Redirect
+Assets/CapstonesRes/distribute/font_SourceHanSansCN/Common/Fonts/DistributeFontInfo.fi.txt|redirect|fonts_font_SourceHanSansCN|0|Redirect

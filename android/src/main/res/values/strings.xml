@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">彈彈島OL</string>
+    <string name="quit_dialog_title">註意</string>
+    <string name="quit_dialog_msg">確定要退出遊戲嗎?</string>
+    <string name="quit_dialog_cancle">取消</string>
+    <string name="quit_dialog_confirm">確認</string>
+    <string name="notice_dialog_one">檢測到妳可能使用了外掛程序</string>
+    <string name="notice_dialog_two">.請關掉外掛再啟動遊戲。</string>
+</resources>
