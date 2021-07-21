@@ -43,7 +43,7 @@ public class SGPPlugin {
 
     public static void loginCallback() {
         try {
-            Log.d("SGPPlugin", "Login status:" + LoginStatus);
+            Log.d("hanoivip", "Login status:" + LoginStatus);
             if (SGPPlugin.LoginStatus == 1) {
                 final Integer productId = 1;//FastSdk.getChannelInfo().getProductId();
                 final String accessToken = EventPlugin.userToken;//userLoginResponse.getAccessToken();
@@ -210,6 +210,7 @@ public class SGPPlugin {
         });
         EventPlugin.RegHandler("SDK_Login", RunOnUIThread(new Runnable() {
             public void run() {
+                Log.e("hanoivip", "SDK_Login");
                 SGPPlugin.mainActivity.runOnUiThread(new Runnable() {
                     public void run() {
                         EventPlugin.TrigEvent("Dist_SGPSDK_Close", EventPlugin.NewCallToken());
@@ -275,7 +276,7 @@ public class SGPPlugin {
                                 //intent.addCategory("android.intent.category.HOME");
                                 //intent.setFlags(Intent.CATEGORY_LAUNCHER);
                                 //SGPPlugin.mainActivity.startActivity(intent);
-                                //Process.killProcess(Process.myPid());
+                                Process.killProcess(Process.myPid());
                             }
                         });
                         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

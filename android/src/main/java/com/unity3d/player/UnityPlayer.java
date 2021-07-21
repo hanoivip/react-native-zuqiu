@@ -40,7 +40,7 @@ public class UnityPlayer extends FrameLayout {
     private static boolean isMainLoaded;
 
     /* renamed from: a */
-    UnityMain unityMain = new UnityMain();
+    UnityMain unityMain = null;
 
     TextInputDialog inputDialog = null;
 
@@ -143,7 +143,7 @@ public class UnityPlayer extends FrameLayout {
         }
 
         /* renamed from: a */
-        public final void mo13190a() {
+        public final void onStop() {
             sendMessage(UnityState.QUIT);
         }
 
@@ -319,6 +319,7 @@ public class UnityPlayer extends FrameLayout {
         nativeInitWebRequest(UnityWebRequest.class);
         m177k();
         this.phone = (TelephonyManager) this.context.getSystemService(Context.TELEPHONY_SERVICE);
+        this.unityMain = new UnityMain();
         this.unityMain.start();
     }
 
@@ -487,6 +488,9 @@ public class UnityPlayer extends FrameLayout {
         if (GameState.isInitDone()) {
             if (!NativeLoader.unload()) {
                 throw new UnsatisfiedLinkError("Unable to unload libraries from libmain.so");
+            }
+            else {
+                Log.d("hanoivip", "unload libraries from libmain.so success");
             }
             GameState.reset();
         }
@@ -691,10 +695,6 @@ public class UnityPlayer extends FrameLayout {
         return true;
     }
 
-    public void kill() {
-        Process.killProcess(Process.myPid());
-    }
-
     public void lowMemory() {
         queueJob((Runnable) new Runnable() {
             public final void run() {
@@ -737,12 +737,13 @@ public class UnityPlayer extends FrameLayout {
         if (!this.gameState.mo13265e()) {
             pause();
         }
-        this.unityMain.mo13190a();
+        this.unityMain.onStop();
         try {
             this.unityMain.join(4000);
         } catch (InterruptedException e) {
             this.unityMain.interrupt();
         }
+        this.unityMain = null;
         //if (this.f153h != null) {
         //    this.context.unregisterReceiver(this.f153h);
         //}
@@ -750,7 +751,7 @@ public class UnityPlayer extends FrameLayout {
         if (GameState.isInitDone()) {
             removeAllViews();
         }
-        //kill();
+        //unload libmain.so dependencies..
         unload();
     }
 

@@ -23,7 +23,8 @@ public class UnityPlayerNativeActivity extends Activity {
     private int width;
 
     public void onCreate(Bundle savedInstanceState) {
-		
+		Log.e("hanoivip", "onCreate");
+        
 		// hanoivip: get intent parameter
 		Intent intent = getIntent();
 		int uid = intent.getIntExtra("uid", 0);
@@ -168,10 +169,9 @@ public class UnityPlayerNativeActivity extends Activity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        //hanoivip: just exit, not close the wrapper
         DistributePlugin.OnBackPressed();
         Log.e("hanoivip", "onBackPressed");
-        this.finish();
+        //this.finish();
     }
 
     @Override
@@ -182,14 +182,7 @@ public class UnityPlayerNativeActivity extends Activity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         Log.e("hanoivip", "onKeyDown");
-        /*
-        if (keyCode == KeyEvent.KEYCODE_BACK)
-        {
-            this.finish();
-            return true;
-        }
-        else*/
-            return this.mUnityPlayer.injectEvent(event);
+        return this.mUnityPlayer.injectEvent(event);
     }
 
     @Override
